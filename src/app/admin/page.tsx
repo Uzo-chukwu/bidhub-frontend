@@ -207,7 +207,7 @@ function AdminDashboardContent() {
                       </div>
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
-                        <span>{auction.bids.length} bids</span>
+                        <span>{auction.bids?.length ?? 0} bids</span>
                       </div>
                       <div>
                         <span className="font-medium">Seller:</span> {auction.seller.username}

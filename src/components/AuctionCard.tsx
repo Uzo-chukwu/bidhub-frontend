@@ -18,13 +18,13 @@ export function AuctionCard({ auction, className }: AuctionCardProps) {
     <Link
       href={`/auctions/${auction.id}`}
       className={cn(
-        'group block bg-white rounded-xl border border-gray-200 overflow-hidden',
-        'hover:shadow-lg hover:border-indigo-300 transition-all duration-300',
+        'group block bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden',
+        'hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-300',
         className
       )}
     >
       {/* Image */}
-      <div className="relative h-56 bg-gradient-to-br from-indigo-50 to-purple-50 overflow-hidden">
+      <div className="relative h-56 bg-gradient-to-br from-blue-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
         {auction.imageUrl ? (
           <Image
             src={auction.imageUrl}
@@ -34,7 +34,7 @@ export function AuctionCard({ auction, className }: AuctionCardProps) {
           />
         ) : (
           <div className="flex items-center justify-center h-full">
-            <DollarSign className="w-16 h-16 text-indigo-300" />
+            <DollarSign className="w-16 h-16 text-gray-300 dark:text-gray-700" />
           </div>
         )}
         <div className="absolute top-3 right-3">
@@ -44,27 +44,27 @@ export function AuctionCard({ auction, className }: AuctionCardProps) {
 
       {/* Content */}
       <div className="p-5 space-y-3">
-        <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 group-hover:text-indigo-600 transition-colors">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
           {auction.title}
         </h3>
 
-        <p className="text-sm text-gray-600 line-clamp-2">{auction.description}</p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{auction.description}</p>
 
-        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+        <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-gray-800">
           <div>
-            <p className="text-xs text-gray-500 mb-0.5">Current Price</p>
-            <p className="text-xl font-bold text-indigo-600">
+            <p className="text-xs text-gray-500 dark:text-gray-500 mb-0.5">Current Price</p>
+            <p className="text-xl font-bold text-blue-600 dark:text-blue-500">
               {formatPrice(auction.currentPrice)}
             </p>
           </div>
           <div className="text-right">
-            <p className="text-xs text-gray-500 mb-0.5">
+            <p className="text-xs text-gray-500 dark:text-gray-500 mb-0.5">
               {isEnded ? 'Ended' : 'Time Left'}
             </p>
             <p
               className={cn(
                 'text-sm font-semibold',
-                isEnded ? 'text-gray-500' : 'text-orange-600'
+                isEnded ? 'text-gray-500 dark:text-gray-500' : 'text-gray-700 dark:text-gray-300'
               )}
             >
               {timeRemaining}
@@ -72,12 +72,12 @@ export function AuctionCard({ auction, className }: AuctionCardProps) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-xs text-gray-500 pt-2 border-t border-gray-100">
+        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-2 border-t border-gray-100 dark:border-gray-800">
           <div className="flex items-center gap-1">
             <Clock className="w-3.5 h-3.5" />
             <span>{formatDate(auction.createdAt)}</span>
           </div>
-          <span className="font-medium">{auction.bids.length} bids</span>
+          <span className="font-medium">{auction.bids?.length ?? 0} bids</span>
         </div>
       </div>
     </Link>

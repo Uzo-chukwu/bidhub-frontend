@@ -91,11 +91,11 @@ function ToastItem({
 
   return (
     <div
-      className={`flex items-start gap-3 p-4 rounded-lg border shadow-lg ${bgColors[toast.type]} animate-slide-in`}
+      className={`flex items-start gap-3 p-4 rounded-lg border shadow-md ${bgColors[toast.type]} animate-slide-in`}
     >
       {icons[toast.type]}
-      <p className="flex-1 text-sm font-medium text-gray-900">{toast.message}</p>
-      <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+      <p className="flex-1 text-sm font-medium text-gray-900 dark:text-gray-100">{toast.message}</p>
+      <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300">
         <X className="w-4 h-4" />
       </button>
     </div>

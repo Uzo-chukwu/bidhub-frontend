@@ -3,22 +3,22 @@ import { Loader2 } from 'lucide-react';
 export function LoadingSkeleton() {
   return (
     <div className="flex items-center justify-center min-h-[400px]">
-      <Loader2 className="w-10 h-10 animate-spin text-indigo-600" />
+      <Loader2 className="w-10 h-10 animate-spin text-blue-600 dark:text-blue-500" />
     </div>
   );
 }
 
 export function AuctionCardSkeleton() {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden animate-pulse">
-      <div className="h-56 bg-gray-200" />
+    <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden animate-pulse">
+      <div className="h-56 bg-gray-200 dark:bg-gray-800" />
       <div className="p-5 space-y-3">
-        <div className="h-6 bg-gray-200 rounded w-3/4" />
-        <div className="h-4 bg-gray-200 rounded w-full" />
-        <div className="h-4 bg-gray-200 rounded w-2/3" />
-        <div className="flex justify-between items-center pt-2 border-t border-gray-100">
-          <div className="h-8 bg-gray-200 rounded w-24" />
-          <div className="h-6 bg-gray-200 rounded w-16" />
+        <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-3/4" />
+        <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-full" />
+        <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-2/3" />
+        <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-800">
+          <div className="h-8 bg-gray-200 dark:bg-gray-800 rounded w-24" />
+          <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-16" />
         </div>
       </div>
     </div>

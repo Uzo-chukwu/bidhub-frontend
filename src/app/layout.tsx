@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 import { ToastProvider } from "@/providers/ToastProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -41,11 +42,13 @@ export default function RootLayout({
 function AppWrapper({ children }: { children: React.ReactNode }) {
   return (
     <ReactQueryProvider>
-      <ToastProvider>
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </ToastProvider>
+      <ThemeProvider>
+        <ToastProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ToastProvider>
+      </ThemeProvider>
     </ReactQueryProvider>
   );
 }
